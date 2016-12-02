@@ -1,0 +1,165 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Exercise1()
+{
+	int number = 10;
+	cout << &number << " = " << number << endl << endl;
+
+	float money = 100.99;
+	cout << &money << " = " << money << endl << endl;
+
+	string name = "Angela";
+	cout << &name << " = " << name << endl;
+}
+
+void Exercise2()
+{
+	string schools[4] = { "JCCC", "KU", "K State", "Baker" };
+
+	cout << "Array Address: " << schools << endl;
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "Item " << i << " address: " << &schools[i]
+			<< "\t value: " << schools[i] << endl;
+	}
+}
+
+void Exercise3()
+{
+	int number = 10;
+	float money = 100.99;
+	string name = "Angela";
+
+	int* ptrInteger = &number;
+	float* ptrFloat = &money;
+	string* ptrString = &name;
+
+	cout << ptrInteger << " = " << number << endl << endl;
+	cout << ptrFloat << " = " << money << endl << endl;
+	cout << ptrString << " = " << name << endl;
+}
+
+void Exercise4()
+{
+	bool done = false;
+	while (!done)
+	{
+		cout << "1. Integers, 2. Floats, 3. Booleans, 4. Doubles, 5. Quit" << endl << "Choice: ";
+		int choice;
+		cin >> choice;
+
+		if (choice == 1)
+		{
+			int myNumber = 13;
+			int* ptrInteger = &myNumber;
+			cout << "\nInteger size: " << sizeof(myNumber) << ", address: " << ptrInteger << endl << endl;
+		}
+		else if (choice == 2)
+		{
+			float myPrice = 99.99;
+			float* ptrFloat = &myPrice;
+			cout << "\nFloat size: " << sizeof(myPrice) << ", address: " << ptrFloat << endl << endl;
+		}
+		else if (choice == 3)
+		{
+			bool myAnswer = false;
+			bool* ptrBool = &myAnswer;
+			cout << "\nBoolean size: " << sizeof(myAnswer) << ", address: " << ptrBool << endl << endl;
+		}
+		else if (choice == 4)
+		{
+			double myDouble = 45.67;
+			double* ptrDouble = &myDouble;
+			cout << "\nDouble size: " << sizeof(myDouble) << ", address: " << ptrDouble << endl << endl;
+		}
+		else if (choice == 5)
+		{
+			done = true;
+		}
+	}
+}
+
+void Exercise5()
+{
+	bool done = false;
+
+	while (!done)
+	{
+		float priceHamburger = 5.99;
+		float priceFries = 1.99;
+		float priceSalad = 6.99;
+
+		float* ptrPrice;
+
+		cout << "1. Hamburger, 2. Fries, 3. Salad, 4. None" << endl << "Choice: ";
+		int choice;
+		cin >> choice;
+
+		if (choice == 1)
+		{
+			ptrPrice = &priceHamburger;
+			cout << "Original Price: $" << *ptrPrice << endl;
+			float taxAmount = *ptrPrice * 0.065;
+			*ptrPrice = *ptrPrice + taxAmount;
+			cout << "With Tax Price: $" << *ptrPrice << endl << endl;
+		}
+		else if (choice == 2)
+		{
+			ptrPrice = &priceFries;
+			cout << "Original Price: $" << *ptrPrice << endl;
+			float taxAmount = *ptrPrice * 0.065;
+			*ptrPrice = *ptrPrice + taxAmount;
+			cout << "With Tax Price: $" << *ptrPrice << endl << endl;
+		}
+		else if (choice == 3)
+		{
+			ptrPrice = &priceSalad;
+			cout << "Original Price: $" << *ptrPrice << endl;
+			float taxAmount = *ptrPrice * 0.065;
+			*ptrPrice = *ptrPrice + taxAmount;
+			cout << "With Tax Price: $" << *ptrPrice << endl << endl;
+		}
+		else if (choice == 4)
+		{
+			done = true;
+		}
+	}
+}
+
+void Exercise6()
+{
+	string students[3] = { "Maddie", "Aelon", "Kristov" };
+	string* ptrStudent;
+
+	cout << "Enter 0, 1, or 2: ";
+	int x;
+	cin >> x;
+
+	ptrStudent = &students[x];
+
+	cout << "\nNew name: ";
+	string newName;
+	cin >> newName;
+
+	*ptrStudent = newName;
+
+	cout << endl;
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "student " << i << " = " << students[i] << endl;
+	}
+}
+
+int main()
+{
+	Exercise1();
+	Exercise2();
+	Exercise3();
+	Exercise4();
+	Exercise5();
+	Exercise6();
+}
+	
